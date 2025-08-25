@@ -7,7 +7,7 @@ import React, { useId, useState } from 'react'
 
 const StringParam = ({ param, value, updateNodeParamValue }: ParamProps) => {
 
-    const [internalValue, setInternalValue] = useState(value);
+    const [internalValue, setInternalValue] = useState(value ?? '');
     const id = useId();
 
     return (
