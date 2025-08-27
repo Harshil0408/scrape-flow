@@ -5,6 +5,7 @@ import NodeHeader from "./node-header";
 import { AppNodeData } from "@/types/appNode";
 import { TaskRegistry } from "@/lib/workflow/task/registry";
 import { NodeInput, NodeInputs } from "./node-inputs";
+import { NodeOutput, NodeOutputs } from "./node-outputs";
 
 const NodeComponent = memo((props: NodeProps) => {
 
@@ -18,6 +19,12 @@ const NodeComponent = memo((props: NodeProps) => {
                 <NodeInput key={input.name} nodeId={props.id} input={input} />
             ))}
         </NodeInputs>
+
+        <NodeOutputs>
+            {task.outputs.map(output => (
+                <NodeOutput key={output.name} output={output} />
+            ))}
+        </NodeOutputs>
     </NodeCard>
 })
 
