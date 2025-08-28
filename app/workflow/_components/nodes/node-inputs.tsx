@@ -20,6 +20,7 @@ export function NodeInput({ input, nodeId }: { input: TaskParam; nodeId: string 
         <NodeParamField param={input} nodeId={nodeId} disabled={isConnected} />
         {!input.hideHandle && (
             <Handle
+                isConnectable={!isConnected}
                 id={input.name}
                 type="target"
                 position={Position.Left}
