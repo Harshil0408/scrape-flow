@@ -56,7 +56,7 @@ const FlowEditor = ({ workflow }: { workflow: Workflow }) => {
 
         const newNode = CreateFlowNode(taskType as TaskType, position);
         setNodes((nds) => nds.concat(newNode))
-    }, []);
+    }, [screenToFlowPosition, setNodes]);
 
     const onDragOver = useCallback((event: React.DragEvent) => {
         event.preventDefault();
@@ -87,7 +87,6 @@ const FlowEditor = ({ workflow }: { workflow: Workflow }) => {
             }
         });
     }, [setEdges, updateNodeData, nodes]);
-    console.log("@NODES", nodes);
 
     return (
         <main className="h-full w-full">
