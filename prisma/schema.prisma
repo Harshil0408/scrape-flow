@@ -24,5 +24,4 @@ model Workflow {
 
   //user cannot have two workflows with same name
   @@unique([name, userId])
-
 }
