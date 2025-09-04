@@ -3,8 +3,8 @@ import { PageToHtmlTask } from "../task/page-to-html";
 
 export async function PageToHtmlExecutor(environment: ExecutionEnvironment<typeof PageToHtmlTask>): Promise<boolean> {
     try {
-        const websiteUrl = environment.getInput("Web Page");
-        console.log(websiteUrl);
+        const html = await environment.getPage()!.content();
+        console.log("@PAGE HTML", html)
         return true;
     } catch (error) {
         console.log(error);
