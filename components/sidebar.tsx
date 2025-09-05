@@ -7,6 +7,7 @@ import { Button, buttonVariants } from "./ui/button"
 import { usePathname } from "next/navigation"
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
 import { useState } from "react"
+import UserAvailableCreditBadge from "./user-available-credit-badge"
 
 const routes = [
     {
@@ -45,7 +46,7 @@ const DesktopSidebar = () => {
             <div className="flex items-center justify-center gap-2 border-b-[1px] border-separate p-4">
                 <Logo />
             </div>
-            <div className="p-2">TODO CREDITS</div>
+            <div className="p-2"><UserAvailableCreditBadge /></div>
             <div className="flex flex-col p-2 gap-2">
                 {routes.map((route) => (
                     <Link href={route.href} key={route.href} className={buttonVariants({ variant: activeRoutes.href === route.href ? "sidebarActiveItem" : "sidebarItem" })}>
@@ -77,6 +78,7 @@ export const MobileSidebar = () => {
                     </SheetTrigger>
                     <SheetContent className="w-[400px] sm:w-[540px] space-y-4" side={"left"}>
                         <Logo />
+                        <UserAvailableCreditBadge />
                         <div className="flex flex-col gap-1">
                             {" "}
                             {routes.map((route) => (
@@ -84,7 +86,7 @@ export const MobileSidebar = () => {
                                     href={route.href}
                                     key={route.href}
                                     className={buttonVariants({ variant: activeRoutes.href === route.href ? "sidebarActiveItem" : "sidebarItem" })}
-                                    onClick={()=> setIsOpen((prev)=> !prev)}
+                                    onClick={() => setIsOpen((prev) => !prev)}
                                 >
                                     <route.icon size={20} />
                                     {route.label}
