@@ -7,15 +7,17 @@ import { useRouter } from "next/navigation"
 import SaveBtn from "./save-button";
 import ExecuteButton from "./execute-button";
 import NavigationTabs from "./navigation-tabs";
+import PublishButton from "./publish-button";
 
 interface Props {
     title: string;
     subtitle?: string;
     workflowId: string;
     hideButtons?: boolean;
+    isPublished?: boolean;
 }
 
-const Topbar = ({ title, subtitle, workflowId, hideButtons = false }: Props) => {
+const Topbar = ({ title, subtitle, workflowId, hideButtons = false, isPublished = false }: Props) => {
 
     const router = useRouter();
 
@@ -45,7 +47,15 @@ const Topbar = ({ title, subtitle, workflowId, hideButtons = false }: Props) => 
                 {hideButtons === false && (
                     <>
                         <ExecuteButton workflowId={workflowId} />
-                        <SaveBtn workflowId={workflowId} />
+                        {
+                            !isPublished && (
+                                <>
+                                    <SaveBtn workflowId={workflowId} />
+                                    <PublishButton workflowId={workflowId} />
+                                </>
+                            )
+                        }
+
                     </>
                 )}
             </div>
