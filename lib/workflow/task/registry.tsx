@@ -11,6 +11,7 @@ import { ExtractDataWithAiTask } from "./extract-data-with-ai";
 import { ReadPropertyFromJsonTask } from "./read-property-from-json";
 import { AddPropertyToJsonTask } from "./add-property-to-json";
 import { NavigateUrlTask } from "./navigate-url";
+import { ScrollToElementTask } from "./scroll-element";
 
 type Registry = {
     [K in TaskType]: WorkflowTask & { type: K };
@@ -28,4 +29,5 @@ export const TaskRegistry: Registry = {
     READ_PROPERTY_FROM_JSON: ReadPropertyFromJsonTask,
     ADD_PROPERTY_TO_JSON: AddPropertyToJsonTask,
     NAVIGATE_URL: NavigateUrlTask,
+    SCROLL_TO_ELEMENT: ScrollToElementTask,
 }

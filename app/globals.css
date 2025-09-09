@@ -101,3 +101,23 @@
     @apply !bg-accent;
   }
 }
+
+/* For Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 1px; /* ultra-thin */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--primary)); /* Tailwind primary color */
+  border-radius: 9999px; /* fully rounded */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary)) transparent;
+}

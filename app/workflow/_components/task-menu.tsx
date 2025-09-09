@@ -1,14 +1,16 @@
 "use client"
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { TaskRegistry } from "@/lib/workflow/task/registry"
 import { TaskType } from "@/types/task"
+import { CoinsIcon } from "lucide-react"
 
 
 const TaskMenu = () => {
     return (
-        <aside className="w-[340px] min-w-[340px] max-w-[340px] border-r-2 border-separate h-full p-2 x-4 overflow-auto ">
+        <aside className="w-[340px] min-w-[340px] max-w-[340px] border-r-2 border-separate h-full p-2 x-4 overflow-auto">
             <Accordion
                 type="multiple"
                 className="w-full"
@@ -24,6 +26,7 @@ const TaskMenu = () => {
                         <TaskMenuBtn taskType={TaskType.FILL_INPUT} />
                         <TaskMenuBtn taskType={TaskType.NAVIGATE_URL} />
                         <TaskMenuBtn taskType={TaskType.CLICK_ELEMENT} />
+                        <TaskMenuBtn taskType={TaskType.SCROLL_TO_ELEMENT} />
                     </AccordionContent>
                 </AccordionItem>
                 <AccordionItem
@@ -92,6 +95,10 @@ const TaskMenuBtn = ({ taskType }: { taskType: TaskType }) => {
                 <task.icon size={20} />
                 {task.label}
             </div>
+            <Badge className="flex gap-2 items-center" variant={"outline"}>
+                <CoinsIcon size={16} />
+                {task.credits}
+            </Badge>
         </Button>
     )
 
