@@ -47,7 +47,6 @@ const FlowEditor = ({ workflow }: { workflow: Workflow }) => {
     const onDropOver = useCallback((event: React.DragEvent) => {
         event.preventDefault();
         const taskType = event.dataTransfer.getData("application/reactflow");
-        console.log("taskType=======", taskType)
         if (taskType === undefined || !taskType) return;
 
         const position = screenToFlowPosition({
@@ -111,7 +110,6 @@ const FlowEditor = ({ workflow }: { workflow: Workflow }) => {
         );
 
         if (input?.type !== output?.type) {
-            console.log("Invalid connection: type mismatch")
             return false;
         }
 

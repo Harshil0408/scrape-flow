@@ -244,7 +244,6 @@ async function decrementCredits(userId: string, amount: number, logCollector: Lo
         });
         return true;
     } catch (error) {
-        console.log("Error in decrement credits", error);
         logCollector.error("insufficient balance");
         return false;
     }
