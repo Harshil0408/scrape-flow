@@ -43,7 +43,7 @@ export async function ExtractDataWithAiExecutor(environment: ExecutionEnvironmen
         });
 
         const response = await openai.chat.completions.create({
-            model: "gpa-",
+            model: "gpt-4o-mini",
             messages: [
                 {
                     role: "system",
@@ -66,7 +66,7 @@ export async function ExtractDataWithAiExecutor(environment: ExecutionEnvironmen
         environment.log.info(`Completion Prompt tokens: ${response.usage?.completion_tokens}`)
 
         const result = response.choices[0].message?.content;
-        if(!result){
+        if (!result) {
             environment.log.error("Empty response from AI");
             return false;
         }
