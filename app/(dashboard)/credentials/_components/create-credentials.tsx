@@ -32,6 +32,7 @@ const CreateCredentialsDialog = ({ triggerText }: { triggerText?: string }) => {
         mutationFn: CreateCredential,
         onSuccess: () => {
             toast.success("Credential created", { id: "create-Credential" });
+            form.reset();
         },
         onError: () => {
             toast.error("Failed to create Credential", { id: "create-Credential" })
@@ -47,7 +48,6 @@ const CreateCredentialsDialog = ({ triggerText }: { triggerText?: string }) => {
 
     return (
         <Dialog open={open} onOpenChange={(open) => {
-            form.reset();
             setOpen(open);
         }}>
             <DialogTrigger asChild>
