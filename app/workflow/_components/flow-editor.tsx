@@ -145,7 +145,6 @@ const FlowEditor = ({ workflow }: { workflow: Workflow }) => {
                 isValidConnection={isValidConnection}
             >
                 <Controls position="top-left" fitViewOptions={fitViewOptions} />
-                <MiniMap />
                 <Background variant={BackgroundVariant.Dots} gap={12} size={1} />
             </ReactFlow>
         </main>
