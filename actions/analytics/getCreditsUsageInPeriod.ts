@@ -50,7 +50,6 @@ export async function GetCreditsUsageInPeriod(period: Period) {
     executionsPhases.forEach(executionPhase => {
         const date = format(executionPhase.startedAt!, "yyyy-MM-dd");
         if (stats[date]) {
-            console.log(executionPhase.status)
             if (executionPhase.status === ExecutionPhaseStatus.COMPLETED) {
                 stats[date].success += executionPhase.creditsConsumed || 0;
             } else if (executionPhase.status === ExecutionPhaseStatus.FAILED) {

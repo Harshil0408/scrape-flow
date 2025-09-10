@@ -1,0 +1,124 @@
+{
+    "id": "cs_test_a1XNBM55Y2gJKNVRRthKJ7SfUkrZuam58WkpCEr3XRTJ47SwdzMWf9z8MN",
+    "object": "checkout.session",
+    "adaptive_pricing": {
+        "enabled": true
+    },
+    "after_expiration": null,
+    "allow_promotion_codes": null,
+    "amount_subtotal": 3999,
+    "amount_total": 3999,
+    "automatic_tax": {
+        "enabled": false,
+        "liability": null,
+        "provider": null,
+        "status": null
+    },
+    "billing_address_collection": null,
+    "cancel_url": "http://localhost:3000/billing",
+    "client_reference_id": null,
+    "client_secret": null,
+    "collected_information": {
+        "shipping_details": null
+    },
+    "consent": null,
+    "consent_collection": null,
+    "created": 1757495446,
+    "currency": "usd",
+    "currency_conversion": null,
+    "custom_fields": [],
+    "custom_text": {
+        "after_submit": null,
+        "shipping_address": null,
+        "submit": null,
+        "terms_of_service_acceptance": null
+    },
+    "customer": "cus_T1opCdGDg5y2Sg",
+    "customer_creation": "if_required",
+    "customer_details": {
+        "address": {
+            "city": null,
+            "country": "IN",
+            "line1": null,
+            "line2": null,
+            "postal_code": null,
+            "state": null
+        },
+        "email": "kanjariyaharshit@gmail.com",
+        "name": "Kanjariya harshit vijaybhai",
+        "phone": null,
+        "tax_exempt": "none",
+        "tax_ids": []
+    },
+    "customer_email": null,
+    "discounts": [],
+    "expires_at": 1757581846,
+    "invoice": "in_1S5lBmPFkiu7lXPZELZzSNgZ",
+    "invoice_creation": {
+        "enabled": true,
+        "invoice_data": {
+            "account_tax_ids": null,
+            "custom_fields": null,
+            "description": null,
+            "footer": null,
+            "issuer": {
+                "type": "self"
+            },
+            "metadata": {},
+            "rendering_options": null
+        }
+    },
+    "livemode": false,
+    "locale": null,
+    "metadata": {
+        "userId": "user_31gclSqsa3Lt5QDvMsQK9NKAfcV",
+        "packId": "MEDIUM"
+    },
+    "mode": "payment",
+    "origin_context": null,
+    "payment_intent": "pi_3S5lBjPFkiu7lXPZ0dRie8di",
+    "payment_link": null,
+    "payment_method_collection": "if_required",
+    "payment_method_configuration_details": {
+        "id": "pmc_1S5jpPPFkiu7lXPZDvIp0nrK",
+        "parent": null
+    },
+    "payment_method_options": {},
+    "payment_method_types": [
+        "card",
+        "link"
+    ],
+    "payment_status": "paid",
+    "permissions": null,
+    "phone_number_collection": {
+        "enabled": false
+    },
+    "presentment_details": {
+        "presentment_amount": 366474,
+        "presentment_currency": "inr"
+    },
+    "recovered_from": null,
+    "saved_payment_method_options": {
+        "allow_redisplay_filters": [
+            "always"
+        ],
+        "payment_method_remove": "disabled",
+        "payment_method_save": null
+    },
+    "setup_intent": null,
+    "shipping_address_collection": null,
+    "shipping_cost": null,
+    "shipping_options": [],
+    "status": "complete",
+    "submit_type": null,
+    "subscription": null,
+    "success_url": "http://localhost:3000/billing",
+    "total_details": {
+        "amount_discount": 0,
+        "amount_shipping": 0,
+        "amount_tax": 0
+    },
+    "ui_mode": "hosted",
+    "url": null,
+    "wallet_options": null
+}

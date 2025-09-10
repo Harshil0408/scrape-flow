@@ -81,7 +81,7 @@ export const MobileSidebar = () => {
                             {" "}
                             {routes.map((route) => (
                                 <Link
-                                    href={route.href}
+                                    href={`${route.href}`}
                                     key={route.href}
                                     className={buttonVariants({ variant: activeRoutes.href === route.href ? "sidebarActiveItem" : "sidebarItem" })}
                                     onClick={() => setIsOpen((prev) => !prev)}

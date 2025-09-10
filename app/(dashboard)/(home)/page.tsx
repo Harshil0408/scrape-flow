@@ -32,10 +32,10 @@ export default async function HomePage({ searchParams }: { searchParams: { month
                 <Suspense fallback={<StatsCardSkeleton />}>
                     <StatsCards selectedPeriod={period} />
                 </Suspense>
-                <Suspense fallback={<Skeleton className='w-full h-[300px]' />}>
+                <Suspense fallback={<Skeleton className='w-full h-[300px] mt-4' />}>
                     <StatsExecutionStatus selectedPeriod={period} />
                 </Suspense>
-                <Suspense fallback={<Skeleton className='w-full h-[300px]' />}>
+                <Suspense fallback={<Skeleton className='w-full h-[300px] mt-4' />}>
                     <CreditsUsageInPeriod selectedPeriod={period} />
                 </Suspense>
             </div>
