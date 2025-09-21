@@ -1,17 +1,17 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import Stripe from 'stripe';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const StripeModule = await import("stripe");
-    const stripe = new StripeModule.default(process.env.STRIPE_SECRET_KEY!, {
-        apiVersion: "2025-08-27.basil",
-        typescript: true,
-    });
+let stripeInstance: Stripe | null = null;
 
-    if (req.method === "POST") {
-        const event = req.body; 
-        res.status(200).json({ received: true });
-    } else {
-        res.setHeader("Allow", "POST");
-        res.status(405).end("Method Not Allowed");
+export function getStripe(): Stripe {
+  if (!stripeInstance) {
+    if (!process.env.STRIPE_SECRET_KEY) {
+      throw new Error('STRIPE_SECRET_KEY is not set in environment variables.');
     }
+
+    stripeInstance = new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2025-08-27.basil',
+      typescript: true,
+    });
+  }
+  return stripeInstance;
 }

@@ -1,29 +1,36 @@
 import { HandleCheckOutSessionCompleted } from "@/lib/stripe/handleCheckoutSessionCompleted";
-import { stripe } from "@/lib/stripe/stripe";
-import { headers } from "next/headers";
+import { getStripe } from "@/lib/stripe/stripe";
 import { NextResponse } from "next/server";
 
+export const runtime = 'nodejs'; 
+
 export async function POST(request: Request) {
-    const body = await request.text();
-    const signature = headers().get("stripe-signature") as string;
+    const stripe = getStripe();
+
+    const buf = await request.arrayBuffer();
+    const rawBody = Buffer.from(buf);
+
+    const signature = request.headers.get("stripe-signature") as string;
 
     try {
         const event = stripe.webhooks.constructEvent(
-            body,
+            rawBody,
             signature,
             process.env.STRIPE_WEBHOOK_SECRET!
         );
 
         switch (event.type) {
             case "checkout.session.completed":
-                HandleCheckOutSessionCompleted(event.data.object);
+                await HandleCheckOutSessionCompleted(event.data.object);
                 break;
             default:
+                console.log(`Unhandled event type: ${event.type}`);
                 break;
         }
 
         return new NextResponse(null, { status: 200 });
-    } catch (error) {
-        return new NextResponse("webhook error", { status: 400 })
+    } catch (err: any) {
+        console.error("Stripe webhook error:", err);
+        return new NextResponse(`Webhook error: ${err.message}`, { status: 400 });
     }
 }
